@@ -1,3 +1,20 @@
+    </head>
+    <body>
+        <pre>
+                                   __       
+                                  |  \      
+ __   __   __   ______    ______  | $$____  
+|  \ |  \ |  \ /      \  |      \ | $$    \ 
+| $$ | $$ | $$|  $$$$$$\  \$$$$$$\| $$$$$$$\
+| $$ | $$ | $$| $$  | $$ /      $$| $$  | $$
+| $$_/ $$_/ $$| $$__/ $$|  $$$$$$$| $$  | $$
+ \$$   $$   $$ \$$    $$ \$$    $$| $$  | $$
+  \$$$$$\$$$$   \$$$$$$   \$$$$$$$ \$$   \$$
+                  
+        </pre>
+    </body>
+</html>
+
 <p>Welcome to WOAH! The Website OSINT and Help script. This script will gather some basic information about websites, as well as some diagnostic information for later use.&nbsp;</p>
 <hr>
 <p><br></p>
