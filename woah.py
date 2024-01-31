@@ -21,7 +21,6 @@ import ssl
 import socket
 import builtwith
 from urllib.parse import urljoin, urlparse
-#import xml.etree.ElementTree as ET # for a previous version, may be removed now
 import subprocess
 
 # long list of CMSs for detect_smc_sass v1.4
