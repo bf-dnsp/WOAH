@@ -1,5 +1,8 @@
 # I like comments more than you dislike them. So I'm keeping in comments, you're welcome.
 # Welcome to WOAH - the Website OSINT and Help tool. 
+# Must install a few python packages for this to work:
+# pip install requests beautifulsoup4 builtwith
+#
 #                                    /$$      
 #                                   | $$      
 #  /$$  /$$  /$$  /$$$$$$   /$$$$$$ | $$$$$$$ 
