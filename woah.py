@@ -65,6 +65,21 @@ def detect_cms_sass(soup):
                 break
     return detected_platforms
 
+##### version 1.6
+def detect_deprecated_features(soup):
+    deprecated_tags = ['applet', 'basefont', 'center', 'dir', 'font', 'frame', 'frameset', 'noframes', 'isindex', 'strike', 'u', 'bgsound', 'big', 'blink', 'marquee', 'spacer', 'tt', 'xmp', 'acronym', 'menu']
+    deprecated_functions = ['document.write', 'alert', 'escape', 'unescape', 'eval', 'captureEvents', 'releaseEvents', 'getYear', 'setYear', 'sync', 'atob', 'btoa', 'showModalDialog']  # Add more deprecated JS functions
+    count = 0
+    for tag in deprecated_tags:
+        count += len(soup.find_all(tag))
+    for function in deprecated_functions:
+        count += soup.text.count(function)
+    return count
+
+def count_cookies(response_headers):
+    return len(response_headers.get('Set-Cookie', '').split(','))
+#####
+
 # try to determine SSL age, which is an indicator of "jank" v1.4
 def get_ssl_cert_age(hostname):
     try:
@@ -232,8 +247,9 @@ def format_output(info):
         'Script and Stylesheet Count': info.get('Script and Stylesheet Count', 'N/A'),
         'Interactive Elements Count': info.get('Interactive Elements Count', 'N/A'),
         'AJAX Requests Count': info.get('AJAX Requests Count', 'N/A'),
-        #'HTML Size in Bytes': info.get('HTML Size in Bytes', 'N/A'),
-        'Server Header': info.get('Server Header', 'N/A')
+        'Server Header': info.get('Server Header', 'N/A'),
+        'Deprecated Features': info.get('Deprecated Features', 'N/A'),
+        'Cookies Count': info.get('Cookies Count', 'N/A')
     }
 
     # Format each section to look nice
@@ -274,6 +290,9 @@ def get_website_info(url, timeout=120):
         first_250_chars = website_text.strip()[:250]
         # Replace all types of line breaks and extra spaces
         first_250_chars = ' '.join(first_250_chars.split())
+        # version 1.6
+        deprecated_features_count = detect_deprecated_features(soup)
+        cookies_count = count_cookies(response.headers)
 
 
         result = {
@@ -293,7 +312,9 @@ def get_website_info(url, timeout=120):
             'Proxy-Authorization Header': proxy_auth_header,
             'Sitemap Size Estimate': sitemap_size,
             'Website Purpose Analysis': website_purpose,
-            'First 250 Characters': first_250_chars,  # New field added
+            'First 250 Characters': first_250_chars,  
+            'Deprecated Features': deprecated_features_count, #v1.6
+            'Cookies Count': cookies_count, #v1.6
             'Error': None
         }
 
