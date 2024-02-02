@@ -19,8 +19,8 @@ from datetime import datetime # for file name appendage
 import time
 import ssl
 import socket
-import builtwith
-from urllib.parse import urljoin, urlparse
+import builtwith # tech stack gatherer
+from urllib.parse import urljoin, urlparse 
 import subprocess
 
 # long list of CMSs for detect_smc_sass v1.4
@@ -65,7 +65,7 @@ def detect_cms_sass(soup):
                 break
     return detected_platforms
 
-##### version 1.6
+##### version 1.5
 def detect_deprecated_features(soup):
     deprecated_tags = ['applet', 'basefont', 'center', 'dir', 'font', 'frame', 'frameset', 'noframes', 'isindex', 'strike', 'u', 'bgsound', 'big', 'blink', 'marquee', 'spacer', 'tt', 'xmp', 'acronym', 'menu']
     deprecated_functions = ['document.write', 'alert', 'escape', 'unescape', 'eval', 'captureEvents', 'releaseEvents', 'getYear', 'setYear', 'sync', 'atob', 'btoa', 'showModalDialog']  # Add more deprecated JS functions
@@ -181,7 +181,7 @@ def analyze_content_for_purpose(soup):
 
     # Define keyword categories
     keyword_categories = {
-        'E-commerce': ['shop', 'buy', 'purchase', 'sale', 'cart', 'ecommerce', 'product', 'store', 'checkout'],
+        'E-commerce': ['shop', 'purchase', 'cart', 'ecommerce', 'store', 'checkout'], # reduced list, creating false positives
         'Blog/News': ['blog', 'article', 'post', 'news', 'write-up', 'editorial', 'commentary'],
         'Corporate/Business': ['contact', 'about us', 'services', 'corporate', 'business', 'company', 'professional', 'client'],
         'Educational/Institutional': ['course', 'academy', 'education', 'research', 'curriculum', 'syllabus', 'institute', 'university', 'school'],
