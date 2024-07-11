@@ -15,17 +15,15 @@ Welcome to WOAH, the Website OSINT and Help tool. This script is designed to scr
 ## Installation
 To use WOAH, you need to install a few Python packages:
 
-    ```sh
     pip install requests beautifulsoup4 builtwith
-    ```
-
+ 
 ## Usage
 Run the script and input URLs separated by lines. Submit an empty line to start the analysis.
-    ```sh
+
     python woah.py
-    ```
+
 ## Example
-    ```sh
+
     $ python woah.py
 Enter URLs separated by line. Submit an empty line to run the script.
 https://example.com
@@ -36,7 +34,7 @@ Processing 1/2: https://example.com
 Processing 2/2: https://anotherexample.com
 
 Information gathered and saved to website_info_output_20240710_123456.txt
-    ```
+
 
 ## Output
 The output file contains the following sections for each URL:
