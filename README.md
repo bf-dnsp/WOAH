@@ -22,19 +22,6 @@ Run the script and input URLs separated by lines. Submit an empty line to start 
 
     python woah.py
 
-## Example
-
-    $ python woah.py
-Enter URLs separated by line. Submit an empty line to run the script.
-https://example.com
-https://anotherexample.com
-
-Processing 2 URLs...
-Processing 1/2: https://example.com
-Processing 2/2: https://anotherexample.com
-
-Information gathered and saved to website_info_output_20240710_123456.txt
-
 
 ## Output
 The output file contains the following sections for each URL:
